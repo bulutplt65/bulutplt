@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>BULUT PLT | Pro Gamer</title>
+    <style>
+        body { background-color: #0b0c10; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Segoe UI', sans-serif; margin: 0; overflow: hidden; }
+        .ana-kutu { background: rgba(26, 26, 36, 0.9); padding: 40px; border-radius: 25px; text-align: center; width: 380px; border: 1px solid #00ffcc; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; z-index: 1; }
+        .profil-foto { width: 110px; height: 110px; border-radius: 50%; border: 3px solid #00ffcc; margin-bottom: 20px; box-shadow: 0 0 15px #00ffcc; }
+        .buton-listesi { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
+        .buton { display: block; padding: 15px; background: #1f2833; color: white; text-decoration: none; border-radius: 12px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; font-size: 16px; text-align: center; }
+        
+        /* Renk Efektleri */
+        .instagram-ozel:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important; transform: scale(1.03); }
+        .spotify-ozel:hover { background: #1DB954 !important; color: black !important; transform: scale(1.03); }
+        .setup-ozel:hover { background: #00d2ff !important; color: black !important; transform: scale(1.03); }
+        .iletisim-ozel:hover { background: linear-gradient(to right, #ff416c, #ff4b2b) !important; transform: scale(1.03); box-shadow: 0 0 20px rgba(255, 75, 43, 0.5); }
+
+        /* Ortak Panel Tasarımı (Modal) */
+        .modal-panel {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            background: rgba(11, 12, 16, 0.98);
+            border: 2px solid #00ffcc;
+            padding: 25px;
+            border-radius: 20px;
+            z-index: 100;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(0, 255, 204, 0.2);
+            backdrop-filter: blur(15px);
+        }
+        .modal-panel h2 { color: #00ffcc; margin-bottom: 20px; font-size: 18px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .alt-buton { display: block; width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 10px; text-decoration: none; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; color: white; background: #1f2833; }
+        
+        /* Alt Menü Renkleri */
+        .btn-gmail:hover { background: #ea4335 !important; }
+        .btn-tel:hover { background: #00d2ff !important; color: black !important; }
+        .btn-ara:hover { background: #4CAF50 !important; }
+        .btn-sms:hover { background: #2196F3 !important; }
+        .btn-wp:hover { background: #25D366 !important; color: black !important; }
+        .kapat-btn { background: #ff4b2b; margin-top: 10px; }
+
+        .gizli { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="ana-kutu">
+        <img src="https://via.placeholder.com/110" class="profil-foto">
+        <h1>BULUT PLT</h1>
+        <p>@BULUT_PLT_6565</p>
+        <div class="buton-listesi">
+            <a href="https://www.instagram.com/BULUT_PLT_6565" target="_blank" class="buton instagram-ozel">Instagram</a>
+            <a href="Https://open.spotify.com/playlist/3si7KSwcTE8YNAGJAV6fOD?si=zbVGXMVOTZ2FymGfH9VJqw&pi=e70L5NJ8SOifc" target="_blank" class="buton spotify-ozel">Spotify Listem</a>
+            <button onclick="ac('setup-paneli')" class="buton setup-ozel">PC Setup / Donanım</button>
+            <button onclick="ac('iletisim-ana-panel')" class="buton iletisim-ozel">İletişim</button>
+        </div>
+    </div>
+
+    <div id="iletisim-ana-panel" class="modal-panel">
+        <h2>İLETİŞİM SEÇENEKLERİ</h2>
+        <a href="mailto:bulutplt65@gmail.com" class="alt-buton btn-gmail">E-posta (Gmail)</a>
+        <button onclick="telefonMenusuAc()" class="alt-buton btn-tel">Telefon / Mesaj</button>
+        <button class="alt-buton kapat-btn" onclick="kapat('iletisim-ana-panel')">Vazgeç</button>
+    </div>
+
+    <div id="telefon-alt-panel" class="modal-panel">
+        <h2>0505 049 66 65</h2>
+        <a href="tel:05050496665" class="alt-buton btn-ara">Hemen Ara</a>
+        <a href="sms:05050496665" class="alt-buton btn-sms">SMS Gönder</a>
+        <a href="https://wa.me/905050496665" target="_blank" class="alt-buton btn-wp">WhatsApp Mesaj</a>
+        <button class="alt-buton kapat-btn" onclick="kapat('telefon-alt-panel')">Geri Dön</button>
+    </div>
+
+    <div id="setup-paneli" class="modal-panel">
+        <h2>SİSTEM ÖZELLİKLERİ</h2>
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/18112002964276331956_0" style="width:100%; border-radius:10px; margin-bottom:10px;">
+        <ul style="text-align:left; font-size:13px; list-style:none; padding:0;">
+            <li><b>İşlemci:</b> i5-10400F</li>
+            <li><b>Ekran Kartı:</b> RX 580</li>
+            <li><b>RAM:</b> 16 GB</li>
+            <li><b>Depolama:</b> 512 GB M2 SSD</li>
+        </ul>
+        <button class="alt-buton kapat-btn" onclick="kapat('setup-paneli')">Kapat</button>
+    </div>
+
+    <script>
+        function ac(id) { document.getElementById(id).style.display = 'block'; }
+        function kapat(id) { document.getElementById(id).style.display = 'none'; }
+        
+        function telefonMenusuAc() {
+            kapat('iletisim-ana-panel');
+            ac('telefon-alt-panel');
+        }
+    </script>
+
+</body>
+</html>
