@@ -1,102 +1,388 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>BULUT PLT | Pro Gamer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BULUT PLT | Pro Gamer - Official</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #0b0c10; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Segoe UI', sans-serif; margin: 0; overflow: hidden; }
-        .ana-kutu { background: rgba(26, 26, 36, 0.9); padding: 40px; border-radius: 25px; text-align: center; width: 380px; border: 1px solid #00ffcc; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; z-index: 1; }
-        .profil-foto { width: 110px; height: 110px; border-radius: 50%; border: 3px solid #00ffcc; margin-bottom: 20px; box-shadow: 0 0 15px #00ffcc; }
-        .buton-listesi { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
-        .buton { display: block; padding: 15px; background: #1f2833; color: white; text-decoration: none; border-radius: 12px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; font-size: 16px; text-align: center; }
-        
-        /* Renk Efektleri */
-        .instagram-ozel:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important; transform: scale(1.03); }
-        .spotify-ozel:hover { background: #1DB954 !important; color: black !important; transform: scale(1.03); }
-        .setup-ozel:hover { background: #00d2ff !important; color: black !important; transform: scale(1.03); }
-        .iletisim-ozel:hover { background: linear-gradient(to right, #ff416c, #ff4b2b) !important; transform: scale(1.03); box-shadow: 0 0 20px rgba(255, 75, 43, 0.5); }
-
-        /* Ortak Panel Tasarımı (Modal) */
-        .modal-panel {
-            display: none;
-            position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 320px;
-            background: rgba(11, 12, 16, 0.98);
-            border: 2px solid #00ffcc;
-            padding: 25px;
-            border-radius: 20px;
-            z-index: 100;
-            text-align: center;
-            box-shadow: 0 0 50px rgba(0, 255, 204, 0.2);
-            backdrop-filter: blur(15px);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .modal-panel h2 { color: #00ffcc; margin-bottom: 20px; font-size: 18px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .alt-buton { display: block; width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 10px; text-decoration: none; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; color: white; background: #1f2833; }
-        
-        /* Alt Menü Renkleri */
-        .btn-gmail:hover { background: #ea4335 !important; }
-        .btn-tel:hover { background: #00d2ff !important; color: black !important; }
-        .btn-ara:hover { background: #4CAF50 !important; }
-        .btn-sms:hover { background: #2196F3 !important; }
-        .btn-wp:hover { background: #25D366 !important; color: black !important; }
-        .kapat-btn { background: #ff4b2b; margin-top: 10px; }
 
-        .gizli { display: none; }
+        body {
+            background: linear-gradient(135deg, #0d0d1a 0%, #1a1a3a 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Arka plan siber ağ efekti */
+        .cyber-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: 
+                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw =I0M0ZjAwZGUiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTAgMGg0MHY0MEgwVjB6bTIwIDIwaDIwdjIwSDIWMjB6TTAgMjBoMjB2MjBIMFYyMHoyMCAwaDIwdjIwSDIwVjB6Ii8+PC9nPjwvZz48L3N2Zz4=');
+            z-index: 1;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1150px;
+            background: rgba(15, 15, 25, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 50px;
+            z-index: 10;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        /* SOL PANEL: Profil ve Linkler */
+        .left-side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding-right: 40px;
+        }
+
+        .profile-area {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 
+                0 0 0 4px rgba(79, 0, 222, 0.5),
+                0 0 30px rgba(0, 242, 254, 0.5);
+        }
+
+        .info-text h1 {
+            font-size: 26px;
+            font-weight: 800;
+            text-align: center;
+            background: linear-gradient(45deg, #00f2fe, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .info-text p {
+            color: #8a8a9e;
+            font-size: 15px;
+            text-align: center;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .links-stack {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .link-btn {
+            width: 100%;
+            padding: 16px 25px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            border: none;
+        }
+
+        .link-btn i {
+            font-size: 18px;
+        }
+
+        .btn-insta {
+            background: rgba(64, 93, 230, 0.1);
+            border: 1px solid rgba(64, 93, 230, 0.5);
+            color: #405de6;
+        }
+        .btn-insta:hover {
+            background: #405de6;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(64, 93, 230, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .btn-spoty {
+            background: rgba(30, 215, 96, 0.1);
+            border: 1px solid rgba(30, 215, 96, 0.5);
+            color: #1ed760;
+        }
+        .btn-spoty:hover {
+            background: #1ed760;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(30, 215, 96, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .btn-setup {
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.5);
+            color: #00f2fe;
+        }
+        .btn-setup:hover {
+            background: #00f2fe;
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .btn-comm {
+            background: rgba(255, 60, 60, 0.1);
+            border: 1px solid rgba(255, 60, 60, 0.5);
+            color: #ff3c3c;
+        }
+        .btn-comm:hover {
+            background: #ff3c3c;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 60, 60, 0.6);
+            transform: translateY(-3px);
+        }
+
+        /* SAĞ PANEL: Kasa ve Detaylar */
+        .right-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .setup-display {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 40px;
+            position: relative;
+        }
+
+        .setup-display h2 {
+            grid-column: 1 / -1;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff 0%, #00f2fe 50%, #fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .components-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .comp-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .comp-icon {
+            width: 55px;
+            height: 55px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00f2fe;
+            font-size: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 0 10px rgba(0, 242, 254, 0.1);
+        }
+
+        .comp-desc p {
+            font-size: 13px;
+            color: #8a8a9e;
+        }
+
+        .comp-desc h4 {
+            font-size: 18px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .case-showcase {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .case-img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.7));
+            border-radius: 15px;
+        }
+
+        /* Areon Koku Yazısı */
+        .areon-badge {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 30px;
+            color: #565666;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            opacity: 0.7;
+        }
+
+        .areon-badge i {
+            color: #ff3c3c;
+            font-size: 16px;
+        }
+
+        /* Mobil Uyum Tasarımı */
+        @media (max-width: 950px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+            .left-side {
+                border-right: none;
+                padding-right: 0;
+                padding-bottom: 40px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .setup-display {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+            .case-showcase {
+                order: -1;
+                margin-bottom: 20px;
+            }
+            .case-img {
+                max-height: 280px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="ana-kutu">
-        <img src="https://via.placeholder.com/110" class="profil-foto">
-        <h1>BULUT PLT</h1>
-        <p>@BULUT_PLT_6565</p>
-        <div class="buton-listesi">
-            <a href="https://www.instagram.com/BULUT_PLT_6565" target="_blank" class="buton instagram-ozel">Instagram</a>
-            <a href="Https://open.spotify.com/playlist/3si7KSwcTE8YNAGJAV6fOD?si=zbVGXMVOTZ2FymGfH9VJqw&pi=e70L5NJ8SOifc" target="_blank" class="buton spotify-ozel">Spotify Listem</a>
-            <button onclick="ac('setup-paneli')" class="buton setup-ozel">PC Setup / Donanım</button>
-            <button onclick="ac('iletisim-ana-panel')" class="buton iletisim-ozel">İletişim</button>
-        </div>
-    </div>
+    <div class="cyber-bg"></div>
 
-    <div id="iletisim-ana-panel" class="modal-panel">
-        <h2>İLETİŞİM SEÇENEKLERİ</h2>
-        <a href="mailto:bulutplt65@gmail.com" class="alt-buton btn-gmail">E-posta (Gmail)</a>
-        <button onclick="telefonMenusuAc()" class="alt-buton btn-tel">Telefon / Mesaj</button>
-        <button class="alt-buton kapat-btn" onclick="kapat('iletisim-ana-panel')">Vazgeç</button>
-    </div>
-
-    <div id="telefon-alt-panel" class="modal-panel">
-        <h2>0505 049 66 65</h2>
-        <a href="tel:05050496665" class="alt-buton btn-ara">Hemen Ara</a>
-        <a href="sms:05050496665" class="alt-buton btn-sms">SMS Gönder</a>
-        <a href="https://wa.me/905050496665" target="_blank" class="alt-buton btn-wp">WhatsApp Mesaj</a>
-        <button class="alt-buton kapat-btn" onclick="kapat('telefon-alt-panel')">Geri Dön</button>
-    </div>
-
-    <div id="setup-paneli" class="modal-panel">
-        <h2>SİSTEM ÖZELLİKLERİ</h2>
-        <img src="http://googleusercontent.com/image_collection/image_retrieval/18112002964276331956_0" style="width:100%; border-radius:10px; margin-bottom:10px;">
-        <ul style="text-align:left; font-size:13px; list-style:none; padding:0;">
-            <li><b>İşlemci:</b> i5-10400F</li>
-            <li><b>Ekran Kartı:</b> RX 580</li>
-            <li><b>RAM:</b> 16 GB</li>
-            <li><b>Depolama:</b> 512 GB M2 SSD</li>
-        </ul>
-        <button class="alt-buton kapat-btn" onclick="kapat('setup-paneli')">Kapat</button>
-    </div>
-
-    <script>
-        function ac(id) { document.getElementById(id).style.display = 'block'; }
-        function kapat(id) { document.getElementById(id).style.display = 'none'; }
+    <div class="main-container">
         
-        function telefonMenusuAc() {
-            kapat('iletisim-ana-panel');
-            ac('telefon-alt-panel');
-        }
-    </script>
+        <div class="left-side">
+            <div class="profile-area">
+                <img src="profil.jpg" alt="Bulut Pulat" class="profile-pic" onerror="this.src='https://via.placeholder.com/170?text=BULUT+PLT'">
+            </div>
+            
+            <div class="info-text">
+                <h1>BULUT PLT</h1>
+                <p>Pro Gamer / Official Site</p>
+            </div>
+
+            <div class="links-stack">
+                <a href="https://www.instagram.com/BULUT_PLT_6565" target="_blank" class="link-btn btn-insta">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://open.spotify.com/playlist/37i9dQZF1E37UP2Yj7y1aM" target="_blank" class="link-btn btn-spoty">
+                    <i class="fab fa-spotify"></i> Hızlı Oynatma Listem
+                </a>
+                <a href="#setup" class="link-btn btn-setup">
+                    <i class="fas fa-desktop"></i> PC Setup / Donanım
+                </a>
+                <a href="https://wa.me/905050496665" target="_blank" class="link-btn btn-comm">
+                    <i class="fas fa-envelope"></i> İletişim (WhatsApp)
+                </a>
+            </div>
+        </div>
+
+        <div class="right-side" id="setup">
+            <div class="setup-display">
+                <h2><i class="fas fa-microchip"></i> PC Setup & Donanım</h2>
+                
+                <div class="components-list">
+                    <div class="comp-item">
+                        <div class="comp-icon"><i class="fas fa-cpu"></i></div>
+                        <div class="comp-desc">
+                            <p>İşlemci</p>
+                            <h4>Intel Core i5-10400F</h4>
+                        </div>
+                    </div>
+
+                    <div class="comp-item">
+                        <div class="comp-icon"><i class="fas fa-fan"></i></div>
+                        <div class="comp-desc">
+                            <p>Ekran Kartı</p>
+                            <h4>AMD Radeon RX 580</h4>
+                        </div>
+                    </div>
+
+                    <div class="comp-item">
+                        <div class="comp-icon"><i class="fas fa-memory"></i></div>
+                        <div class="comp-desc">
+                            <p>RAM Bellek</p>
+                            <h4>16 GB DDR4</h4>
+                        </div>
+                    </div>
+
+                    <div class="comp-item">
+                        <div class="comp-icon"><i class="fas fa-server"></i></div>
+                        <div class="comp-desc">
+                            <p>Kasa Modeli</p>
+                            <h4>Izoly Black Power / Rampage</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-showcase">
+                    <img src="rampage.jpg" alt="Izoly Gamer Kasa" class="case-img" onerror="this.src='https://via.placeholder.com/280x350?text=Izoly+Kasa'">
+                </div>
+
+                <div class="areon-badge">
+                    <i class="fas fa-tree"></i> Areon kokusu ve RGB aydınlatma...
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </body>
 </html>
