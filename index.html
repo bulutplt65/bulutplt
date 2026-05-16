@@ -94,6 +94,7 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.03);
             cursor: pointer;
+            user-select: none;
         }
 
         .btn i {
@@ -147,27 +148,23 @@
             box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
         }
 
-        /* PC Setup Alanı (İlk başta gizli ve animasyonlu) */
+        /* PC Setup Alanı (Sayfa ilk açıldığında %100 gizli) */
         .hardware-section {
-            max-height: 0;
+            display: none; /* İlk başta tamamen yok et */
             opacity: 0;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             background: rgba(11, 15, 25, 0.8);
             border-radius: 20px;
-            padding: 0 20px;
-            margin-top: 0;
-            border: 1px solid transparent;
-            text-align: left;
-        }
-
-        /* Butona basılınca tetiklenecek class */
-        .hardware-section.show {
-            max-height: 800px; /* İçeriğin sığacağı maksimum yükseklik */
-            opacity: 1;
             padding: 20px;
             margin-top: 25px;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: left;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Butona basılınca JavaScript bu class'ı devreye sokacak */
+        .hardware-section.show {
+            display: block !important; /* Görünür yap */
+            opacity: 1;
         }
 
         .hardware-title {
@@ -251,7 +248,7 @@
                 <i class="fab fa-tiktok"></i> TikTok
             </a>
             
-            <a href="#" class="btn btn-spotify">
+            <a href="https://open.spotify.com" target="_blank" class="btn btn-spotify">
                 <i class="fab fa-spotify"></i> Hızlı Oynatma Listem
             </a>
             
@@ -322,7 +319,11 @@
     <script>
         function toggleSetup() {
             var menu = document.getElementById("setupMenu");
-            menu.classList.toggle("show");
+            if (menu.classList.contains("show")) {
+                menu.classList.remove("show");
+            } else {
+                menu.classList.add("show");
+            }
         }
     </script>
 
