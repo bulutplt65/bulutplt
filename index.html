@@ -73,7 +73,7 @@
             text-transform: uppercase;
         }
 
-        /* Butonlar */
+        /* Buton Kapsayıcı */
         .links-container {
             display: flex;
             flex-direction: column;
@@ -104,7 +104,7 @@
             text-align: center;
         }
 
-        /* Sosyal Medya Renkleri */
+        /* 1. Instagram */
         .btn-instagram {
             background: rgba(30, 41, 75, 0.6);
             border-left: 5px solid #e1306c;
@@ -116,6 +116,7 @@
             box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4);
         }
 
+        /* 2. TikTok */
         .btn-tiktok {
             background: rgba(20, 23, 35, 0.7);
             border-left: 5px solid #ff0050;
@@ -127,6 +128,7 @@
             box-shadow: 0 5px 15px rgba(255, 0, 80, 0.4);
         }
 
+        /* 3. Spotify */
         .btn-spotify {
             background: rgba(18, 48, 38, 0.6);
             border-left: 5px solid #1ed760;
@@ -138,19 +140,7 @@
             box-shadow: 0 5px 15px rgba(30, 215, 96, 0.4);
         }
 
-        /* İletişim Tutucu Buton (Turuncu/Gold) */
-        .btn-contact-trigger {
-            background: rgba(78, 56, 22, 0.6);
-            border-left: 5px solid #f39c12;
-            color: #f39c12;
-        }
-        .btn-contact-trigger:hover {
-            background: #f39c12;
-            color: #fff;
-            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
-        }
-
-        /* PC Setup Butonu */
+        /* 4. PC Donanım Tetikleyici Buton */
         .btn-setup {
             background: rgba(16, 56, 68, 0.6);
             border-left: 5px solid #00f2fe;
@@ -162,27 +152,32 @@
             box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
         }
 
-        /* Gizli Menüler (İlk başta %100 kapalı durması için) */
-        .dropdown-menu, .hardware-section {
+        /* 5. İletişim Tetikleyici Buton (Turuncu Tutucu Tasarım) */
+        .btn-contact-trigger {
+            background: rgba(78, 56, 22, 0.6);
+            border-left: 5px solid #f39c12;
+            color: #f39c12;
+        }
+        .btn-contact-trigger:hover {
+            background: #f39c12;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+        }
+
+        /* Gizli Açılır Bölümler (CSS Ön Kuralı) */
+        .hardware-section, .dropdown-menu {
             display: none !important;
             opacity: 0;
-            flex-direction: column;
-            gap: 12px;
-            padding: 15px;
             background: rgba(11, 15, 25, 0.6);
             border-radius: 20px;
+            padding: 15px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             margin-top: 5px;
             margin-bottom: 10px;
             transition: opacity 0.3s ease;
         }
 
-        /* JavaScript ile Açıldığında Devreye Giren Classlar */
-        .dropdown-menu.show {
-            display: flex !important;
-            opacity: 1;
-        }
-
+        /* JS ile Açılma Sınıfları */
         .hardware-section.show {
             display: block !important;
             opacity: 1;
@@ -190,67 +185,31 @@
             padding: 20px;
         }
 
-        /* Alt Seçenek Renkleri (İstediğin Gibi) */
-        .btn-gmail {
-            background: rgba(58, 26, 26, 0.7);
-            border-left: 5px solid #ea4335;
-            color: #ea4335; /* Kırmızı */
-        }
-        .btn-gmail:hover {
-            background: #ea4335;
-            color: #fff;
-            box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4);
+        .dropdown-menu.show {
+            display: flex !important;
+            flex-direction: column;
+            gap: 12px;
+            opacity: 1;
         }
 
-        .btn-sms {
-            background: rgba(26, 47, 75, 0.7);
-            border-left: 5px solid #007aff;
-            color: #007aff; /* Mavi */
-        }
-        .btn-sms:hover {
-            background: #007aff;
-            color: #fff;
-            box-shadow: 0 5px 15px rgba(0, 122, 255, 0.4);
-        }
-
-        .btn-whatsapp {
-            background: rgba(20, 56, 36, 0.7);
-            border-left: 5px solid #25d366;
-            color: #25d366; /* Yeşil */
-        }
-        .btn-whatsapp:hover {
-            background: #25d366;
-            color: #fff;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-        }
-
-        /* Donanım Listesi Elemanları */
+        /* Donanım Satırları */
         .hardware-title {
             font-size: 18px;
             font-weight: 700;
             color: #00f2fe;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 10px;
         }
 
         .hardware-item {
             display: flex;
-            align-items: center;
-            gap: 15px;
+            flex-direction: column;
             background: rgba(255, 255, 255, 0.02);
             padding: 12px;
             border-radius: 15px;
             margin-bottom: 12px;
             border: 1px solid rgba(255, 255, 255, 0.03);
-        }
-
-        .hardware-info {
-            display: flex;
-            flex-direction: column;
         }
 
         .hardware-label {
@@ -265,7 +224,37 @@
             font-size: 14px;
             font-weight: 600;
             color: #fff;
-            line-height: 1.3;
+        }
+
+        /* İletişim Alt Seçenek Renkleri */
+        .btn-gmail {
+            background: rgba(58, 26, 26, 0.7);
+            border-left: 5px solid #ea4335;
+            color: #ea4335; /* Kırmızı */
+        }
+        .btn-gmail:hover {
+            background: #ea4335;
+            color: #fff;
+        }
+
+        .btn-sms {
+            background: rgba(26, 47, 75, 0.7);
+            border-left: 5px solid #007aff;
+            color: #007aff; /* Mavi */
+        }
+        .btn-sms:hover {
+            background: #007aff;
+            color: #fff;
+        }
+
+        .btn-whatsapp {
+            background: rgba(20, 56, 36, 0.7);
+            border-left: 5px solid #25d366;
+            color: #25d366; /* Yeşil */
+        }
+        .btn-whatsapp:hover {
+            background: #25d366;
+            color: #fff;
         }
     </style>
 </head>
@@ -282,6 +271,7 @@
         </div>
 
         <div class="links-container">
+            
             <a href="https://www.instagram.com/BULUT_PLT_6565" target="_blank" class="btn btn-instagram">
                 <i class="fab fa-instagram"></i> Instagram
             </a>
@@ -291,11 +281,24 @@
             </a>
             
             <a href="https://open.spotify.com" target="_blank" class="btn btn-spotify">
-                <i class="fab fa-spotify"></i> Hızlı Oynatma Listem
+                <i class="fab fa-spotify"></i> Spotify
             </a>
+            
+            <div onclick="toggleSetup()" class="btn btn-setup">
+                <i class="fas fa-desktop"></i> PC Donanım
+            </div>
+
+            <div id="setupMenu" class="hardware-section">
+                <div class="hardware-title"><i class="fas fa-microchip"></i> Sistem Özellikleri</div>
+                <div class="hardware-item"><span class="hardware-label">İşlemci</span><span class="hardware-name">Intel Core i5-10400F</span></div>
+                <div class="hardware-item"><span class="hardware-label">Ekran Kartı</span><span class="hardware-name">AMD Radeon RX 580 (8GB)</span></div>
+                <div class="hardware-item"><span class="hardware-label">Kasa Modeli</span><span class="hardware-name">Izoly Mid-Tower Mesh RGB</span></div>
+                <div class="hardware-item"><span class="hardware-label">RAM Bellek</span><span class="hardware-name">16 GB Izoly DDR4 (Kırmızı)</span></div>
+                <div class="hardware-item"><span class="hardware-label">Depolama</span><span class="hardware-name">512GB M.2 NVMe SSD</span></div>
+            </div>
 
             <div onclick="toggleContact()" class="btn btn-contact-trigger">
-                <i class="fas fa-address-book"></i> İletişim Seçenekleri
+                <i class="fas fa-address-book"></i> İletişim
             </div>
 
             <div id="contactMenu" class="dropdown-menu">
@@ -309,68 +312,12 @@
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
-            
-            <div onclick="toggleSetup()" class="btn btn-setup">
-                <i class="fas fa-desktop"></i> PC Setup / Donanım
-            </div>
-        </div>
-
-        <div id="setupMenu" class="hardware-section">
-            <div class="hardware-title">
-                <i class="fas fa-microchip"></i> PC DONANIMI | DETAYLI GÖRÜNÜM
-            </div>
-
-            <div class="hardware-item">
-                <div class="hardware-info">
-                    <span class="hardware-label">İşlemci</span>
-                    <span class="hardware-name">Intel Core i5-10400F</span>
-                </div>
-            </div>
-
-            <div class="hardware-item">
-                <div class="hardware-info">
-                    <span class="hardware-label">Ekran Kartı</span>
-                    <span class="hardware-name">AMD Radeon RX 580 (8GB)</span>
-                </div>
-            </div>
-
-            <div class="hardware-item">
-                <div class="hardware-info">
-                    <span class="hardware-label">Kasa Modeli</span>
-                    <span class="hardware-name">Izoly Mid-Tower Mesh RGB</span>
-                </div>
-            </div>
-
-            <div class="hardware-item">
-                <div class="hardware-info">
-                    <span class="hardware-label">RAM Bellek</span>
-                    <span class="hardware-name">16 GB Izoly DDR4 (Kırmızı)</span>
-                </div>
-            </div>
-
-            <div class="hardware-item">
-                <div class="hardware-info">
-                    <span class="hardware-label">Depolama</span>
-                    <span class="hardware-name">512GB M.2 NVMe SSD</span>
-                </div>
-            </div>
 
         </div>
 
     </div>
 
     <script>
-        function toggleContact() {
-            var menu = document.getElementById("contactMenu");
-            if (menu.style.display === "flex" || menu.classList.contains("show")) {
-                menu.style.setProperty("display", "none", "important");
-                menu.classList.remove("show");
-            } else {
-                menu.style.setProperty("display", "flex", "important");
-                menu.classList.add("show");
-            }
-        }
-
         function toggleSetup() {
             var menu = document.getElementById("setupMenu");
             if (menu.style.display === "block" || menu.classList.contains("show")) {
@@ -378,6 +325,17 @@
                 menu.classList.remove("show");
             } else {
                 menu.style.setProperty("display", "block", "important");
+                menu.classList.add("show");
+            }
+        }
+
+        function toggleContact() {
+            var menu = document.getElementById("contactMenu");
+            if (menu.style.display === "flex" || menu.classList.contains("show")) {
+                menu.style.setProperty("display", "none", "important");
+                menu.classList.remove("show");
+            } else {
+                menu.style.setProperty("display", "flex", "important");
                 menu.classList.add("show");
             }
         }
