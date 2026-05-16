@@ -104,6 +104,7 @@
             text-align: center;
         }
 
+        /* Sosyal Medya Renkleri */
         .btn-instagram {
             background: rgba(30, 41, 75, 0.6);
             border-left: 5px solid #e1306c;
@@ -137,6 +138,18 @@
             box-shadow: 0 5px 15px rgba(30, 215, 96, 0.4);
         }
 
+        /* Ana Tetikleyici Butonlar (İletişim ve Setup) */
+        .btn-contact-trigger {
+            background: rgba(78, 56, 22, 0.6);
+            border-left: 5px solid #f39c12;
+            color: #f39c12;
+        }
+        .btn-contact-trigger:hover {
+            background: #f39c12;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+        }
+
         .btn-setup {
             background: rgba(16, 56, 68, 0.6);
             border-left: 5px solid #00f2fe;
@@ -148,22 +161,76 @@
             box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
         }
 
-        /* PC Setup Alanı (Sayfa ilk açıldığında %100 gizli) */
+        /* Gizli Menü Alanları (CSS Kökten Kapatma) */
+        .dropdown-menu {
+            display: none !important;
+            opacity: 0;
+            flex-direction: column;
+            gap: 12px;
+            padding: 15px;
+            background: rgba(11, 15, 25, 0.6);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 5px;
+            margin-bottom: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* JavaScript ile Tetiklenen Class */
+        .dropdown-menu.show {
+            display: flex !important;
+            opacity: 1;
+        }
+
+        /* İstediğin Özel İletişim Buton Renkleri */
+        .btn-gmail {
+            background: rgba(58, 26, 26, 0.7);
+            border-left: 5px solid #ea4335;
+            color: #ea4335;
+        }
+        .btn-gmail:hover {
+            background: #ea4335;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4);
+        }
+
+        .btn-sms {
+            background: rgba(26, 47, 75, 0.7);
+            border-left: 5px solid #007aff;
+            color: #007aff; /* İstediğin Gibi Mavi */
+        }
+        .btn-sms:hover {
+            background: #007aff;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 122, 255, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: rgba(20, 56, 36, 0.7);
+            border-left: 5px solid #25d366;
+            color: #25d366; /* İstediğin Gibi Yeşil */
+        }
+        .btn-whatsapp:hover {
+            background: #25d366;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* PC Setup Bölümü */
         .hardware-section {
-            display: none; /* İlk başta tamamen yok et */
+            display: none !important;
             opacity: 0;
             background: rgba(11, 15, 25, 0.8);
             border-radius: 20px;
             padding: 20px;
-            margin-top: 25px;
+            margin-top: 15px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             text-align: left;
             transition: opacity 0.4s ease;
         }
 
-        /* Butona basılınca JavaScript bu class'ı devreye sokacak */
         .hardware-section.show {
-            display: block !important; /* Görünür yap */
+            display: block !important;
             opacity: 1;
         }
 
@@ -251,6 +318,22 @@
             <a href="https://open.spotify.com" target="_blank" class="btn btn-spotify">
                 <i class="fab fa-spotify"></i> Hızlı Oynatma Listem
             </a>
+
+            <div onclick="toggleContact()" class="btn btn-contact-trigger">
+                <i class="fas fa-address-book"></i> İletişim Seçenekleri
+            </div>
+
+            <div id="contactMenu" class="dropdown-menu">
+                <a href="mailto:bulutplt6565@gmail.com?subject=Siteden%20Mesaj" class="btn btn-gmail">
+                    <i class="far fa-envelope"></i> Gmail
+                </a>
+                <a href="sms:+905050496665?body=Merhaba%20Bulut%20kral!" class="btn btn-sms">
+                    <i class="fas fa-comment-sms"></i> SMS
+                </a>
+                <a href="https://wa.me/905050496665?text=Merhaba%20Bulut%20kral%20siteden%20geliyorum!" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
             
             <div onclick="toggleSetup()" class="btn btn-setup">
                 <i class="fas fa-desktop"></i> PC Setup / Donanım
@@ -317,11 +400,24 @@
     </div>
 
     <script>
-        function toggleSetup() {
-            var menu = document.getElementById("setupMenu");
-            if (menu.classList.contains("show")) {
+        function toggleContact() {
+            var menu = document.getElementById("contactMenu");
+            if (menu.style.display === "flex" || menu.classList.contains("show")) {
+                menu.style.setProperty("display", "none", "important");
                 menu.classList.remove("show");
             } else {
+                menu.style.setProperty("display", "flex", "important");
+                menu.classList.add("show");
+            }
+        }
+
+        function toggleSetup() {
+            var menu = document.getElementById("setupMenu");
+            if (menu.style.display === "block" || menu.classList.contains("show")) {
+                menu.style.setProperty("display", "none", "important");
+                menu.classList.remove("show");
+            } else {
+                menu.style.setProperty("display", "block", "important");
                 menu.classList.add("show");
             }
         }
