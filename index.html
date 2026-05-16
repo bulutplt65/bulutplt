@@ -138,7 +138,7 @@
             box-shadow: 0 5px 15px rgba(30, 215, 96, 0.4);
         }
 
-        /* İletişim Tutucu Buton */
+        /* İletişim Tutucu Buton (Turuncu/Gold) */
         .btn-contact-trigger {
             background: rgba(78, 56, 22, 0.6);
             border-left: 5px solid #f39c12;
@@ -150,6 +150,7 @@
             box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
         }
 
+        /* PC Setup Butonu */
         .btn-setup {
             background: rgba(16, 56, 68, 0.6);
             border-left: 5px solid #00f2fe;
@@ -161,8 +162,8 @@
             box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
         }
 
-        /* Gizli Menü Alanları */
-        .dropdown-menu {
+        /* Gizli Menüler (İlk başta %100 kapalı durması için) */
+        .dropdown-menu, .hardware-section {
             display: none !important;
             opacity: 0;
             flex-direction: column;
@@ -176,12 +177,20 @@
             transition: opacity 0.3s ease;
         }
 
+        /* JavaScript ile Açıldığında Devreye Giren Classlar */
         .dropdown-menu.show {
             display: flex !important;
             opacity: 1;
         }
 
-        /* İletişim Seçenekleri Renkleri */
+        .hardware-section.show {
+            display: block !important;
+            opacity: 1;
+            text-align: left;
+            padding: 20px;
+        }
+
+        /* Alt Seçenek Renkleri (İstediğin Gibi) */
         .btn-gmail {
             background: rgba(58, 26, 26, 0.7);
             border-left: 5px solid #ea4335;
@@ -215,24 +224,7 @@
             box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
         }
 
-        /* PC Setup Bölümü */
-        .hardware-section {
-            display: none !important;
-            opacity: 0;
-            background: rgba(11, 15, 25, 0.8);
-            border-radius: 20px;
-            padding: 20px;
-            margin-top: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: left;
-            transition: opacity 0.4s ease;
-        }
-
-        .hardware-section.show {
-            display: block !important;
-            opacity: 1;
-        }
-
+        /* Donanım Listesi Elemanları */
         .hardware-title {
             font-size: 18px;
             font-weight: 700;
@@ -254,22 +246,6 @@
             border-radius: 15px;
             margin-bottom: 12px;
             border: 1px solid rgba(255, 255, 255, 0.03);
-        }
-
-        .hardware-img-container {
-            width: 70px;
-            height: 70px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid #00f2fe;
-            flex-shrink: 0;
-            box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
-        }
-
-        .hardware-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .hardware-info {
@@ -345,9 +321,6 @@
             </div>
 
             <div class="hardware-item">
-                <div class="hardware-img-container">
-                    <img src="./islemci.png" alt="İşlemci">
-                </div>
                 <div class="hardware-info">
                     <span class="hardware-label">İşlemci</span>
                     <span class="hardware-name">Intel Core i5-10400F</span>
@@ -355,9 +328,6 @@
             </div>
 
             <div class="hardware-item">
-                <div class="hardware-img-container">
-                    <img src="./ekrankarti.jpg" alt="Ekran Kartı">
-                </div>
                 <div class="hardware-info">
                     <span class="hardware-label">Ekran Kartı</span>
                     <span class="hardware-name">AMD Radeon RX 580 (8GB)</span>
@@ -365,9 +335,6 @@
             </div>
 
             <div class="hardware-item">
-                <div class="hardware-img-container">
-                    <img src="./Kasa.png" alt="Kasa Modeli">
-                </div>
                 <div class="hardware-info">
                     <span class="hardware-label">Kasa Modeli</span>
                     <span class="hardware-name">Izoly Mid-Tower Mesh RGB</span>
@@ -375,9 +342,6 @@
             </div>
 
             <div class="hardware-item">
-                <div class="hardware-img-container">
-                    <img src="./ram.jpg" alt="RAM">
-                </div>
                 <div class="hardware-info">
                     <span class="hardware-label">RAM Bellek</span>
                     <span class="hardware-name">16 GB Izoly DDR4 (Kırmızı)</span>
@@ -385,9 +349,6 @@
             </div>
 
             <div class="hardware-item">
-                <div class="hardware-img-container">
-                    <img src="./ssd.jpg" alt="Depolama">
-                </div>
                 <div class="hardware-info">
                     <span class="hardware-label">Depolama</span>
                     <span class="hardware-name">512GB M.2 NVMe SSD</span>
