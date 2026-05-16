@@ -104,7 +104,7 @@
             text-align: center;
         }
 
-        /* 1. Instagram */
+        /* Instagram */
         .btn-instagram {
             background: rgba(30, 41, 75, 0.6);
             border-left: 5px solid #e1306c;
@@ -116,7 +116,7 @@
             box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4);
         }
 
-        /* 2. TikTok */
+        /* TikTok */
         .btn-tiktok {
             background: rgba(20, 23, 35, 0.7);
             border-left: 5px solid #ff0050;
@@ -128,7 +128,7 @@
             box-shadow: 0 5px 15px rgba(255, 0, 80, 0.4);
         }
 
-        /* 3. Spotify */
+        /* Spotify */
         .btn-spotify {
             background: rgba(18, 48, 38, 0.6);
             border-left: 5px solid #1ed760;
@@ -140,19 +140,7 @@
             box-shadow: 0 5px 15px rgba(30, 215, 96, 0.4);
         }
 
-        /* 4. PC Donanım Tetikleyici Buton */
-        .btn-setup {
-            background: rgba(16, 56, 68, 0.6);
-            border-left: 5px solid #00f2fe;
-            color: #00f2fe;
-        }
-        .btn-setup:hover {
-            background: #00f2fe;
-            color: #000;
-            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
-        }
-
-        /* 5. İletişim Tetikleyici Buton */
+        /* İletişim Ana Buton */
         .btn-contact-trigger {
             background: rgba(78, 56, 22, 0.6);
             border-left: 5px solid #f39c12;
@@ -164,7 +152,19 @@
             box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
         }
 
-        /* Gizli Açılır Bölümler */
+        /* PC Donanım Ana Buton */
+        .btn-setup {
+            background: rgba(16, 56, 68, 0.6);
+            border-left: 5px solid #00f2fe;
+            color: #00f2fe;
+        }
+        .btn-setup:hover {
+            background: #00f2fe;
+            color: #000;
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
+        }
+
+        /* Gizli Bölümler */
         .hardware-section, .dropdown-menu {
             display: none !important;
             opacity: 0;
@@ -177,7 +177,7 @@
             transition: opacity 0.3s ease;
         }
 
-        /* JS ile Gösterme Sınıfları */
+        /* Görünürlük Sınıfları */
         .hardware-section.show {
             display: block !important;
             opacity: 1;
@@ -192,7 +192,7 @@
             opacity: 1;
         }
 
-        /* Donanım Listesi Tasarımı */
+        /* Donanım Tasarımı */
         .hardware-title {
             font-size: 18px;
             font-weight: 700;
@@ -213,7 +213,7 @@
             border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
-        /* Görseller İçin Kapsayıcı Kutu */
+        /* Fotoğraf Kutuları */
         .hardware-img-container {
             width: 70px;
             height: 70px;
@@ -222,6 +222,7 @@
             border: 2px solid #00f2fe;
             flex-shrink: 0;
             box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+            background-color: #111625;
         }
 
         .hardware-img-container img {
@@ -249,7 +250,7 @@
             color: #fff;
         }
 
-        /* İletişim Alt Seçenek Renkleri */
+        /* İletişim Alt Butonları */
         .btn-gmail {
             background: rgba(58, 26, 26, 0.7);
             border-left: 5px solid #ea4335;
@@ -307,6 +308,22 @@
                 <i class="fab fa-spotify"></i> Spotify
             </a>
             
+            <div onclick="toggleContact()" class="btn btn-contact-trigger">
+                <i class="fas fa-address-book"></i> İletişim
+            </div>
+
+            <div id="contactMenu" class="dropdown-menu">
+                <a href="mailto:bulutplt6565@gmail.com?subject=Siteden%20Mesaj" class="btn btn-gmail">
+                    <i class="far fa-envelope"></i> Gmail
+                </a>
+                <a href="sms:+905050496665?body=Merhaba%20Bulut%20kral!" class="btn btn-sms">
+                    <i class="fas fa-comment-sms"></i> SMS
+                </a>
+                <a href="https://wa.me/905050496665?text=Merhaba%20Bulut%20kral%20siteden%20geliyorum!" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+
             <div onclick="toggleSetup()" class="btn btn-setup">
                 <i class="fas fa-desktop"></i> PC Donanım
             </div>
@@ -363,22 +380,6 @@
                         <span class="hardware-name">512GB M.2 NVMe SSD</span>
                     </div>
                 </div>
-            </div>
-
-            <div onclick="toggleContact()" class="btn btn-contact-trigger">
-                <i class="fas fa-address-book"></i> İletişim
-            </div>
-
-            <div id="contactMenu" class="dropdown-menu">
-                <a href="mailto:bulutplt6565@gmail.com?subject=Siteden%20Mesaj" class="btn btn-gmail">
-                    <i class="far fa-envelope"></i> Gmail
-                </a>
-                <a href="sms:+905050496665?body=Merhaba%20Bulut%20kral!" class="btn btn-sms">
-                    <i class="fas fa-comment-sms"></i> SMS
-                </a>
-                <a href="https://wa.me/905050496665?text=Merhaba%20Bulut%20kral%20siteden%20geliyorum!" target="_blank" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
             </div>
 
         </div>
