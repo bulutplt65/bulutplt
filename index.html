@@ -78,7 +78,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
 
         .btn {
@@ -93,6 +93,7 @@
             font-size: 16px;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.03);
+            cursor: pointer;
         }
 
         .btn i {
@@ -146,14 +147,27 @@
             box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
         }
 
-        /* PC Setup ve Donanım Alanı */
+        /* PC Setup Alanı (İlk başta gizli ve animasyonlu) */
         .hardware-section {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             background: rgba(11, 15, 25, 0.8);
             border-radius: 20px;
+            padding: 0 20px;
+            margin-top: 0;
+            border: 1px solid transparent;
+            text-align: left;
+        }
+
+        /* Butona basılınca tetiklenecek class */
+        .hardware-section.show {
+            max-height: 800px; /* İçeriğin sığacağı maksimum yükseklik */
+            opacity: 1;
             padding: 20px;
             margin-top: 25px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: left;
         }
 
         .hardware-title {
@@ -237,16 +251,16 @@
                 <i class="fab fa-tiktok"></i> TikTok
             </a>
             
-            <a href="https://open.spotify.com" target="_blank" class="btn btn-spotify">
+            <a href="#" class="btn btn-spotify">
                 <i class="fab fa-spotify"></i> Hızlı Oynatma Listem
             </a>
             
-            <a href="#setup" class="btn btn-setup">
+            <div onclick="toggleSetup()" class="btn btn-setup">
                 <i class="fas fa-desktop"></i> PC Setup / Donanım
-            </a>
+            </div>
         </div>
 
-        <div id="setup" class="hardware-section">
+        <div id="setupMenu" class="hardware-section">
             <div class="hardware-title">
                 <i class="fas fa-microchip"></i> PC DONANIMI | DETAYLI GÖRÜNÜM
             </div>
@@ -304,6 +318,13 @@
         </div>
 
     </div>
+
+    <script>
+        function toggleSetup() {
+            var menu = document.getElementById("setupMenu");
+            menu.classList.toggle("show");
+        }
+    </script>
 
 </body>
 </html>
