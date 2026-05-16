@@ -152,7 +152,7 @@
             box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
         }
 
-        /* 5. İletişim Tetikleyici Buton (Turuncu Tutucu Tasarım) */
+        /* 5. İletişim Tetikleyici Buton */
         .btn-contact-trigger {
             background: rgba(78, 56, 22, 0.6);
             border-left: 5px solid #f39c12;
@@ -164,7 +164,7 @@
             box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
         }
 
-        /* Gizli Açılır Bölümler (CSS Ön Kuralı) */
+        /* Gizli Açılır Bölümler */
         .hardware-section, .dropdown-menu {
             display: none !important;
             opacity: 0;
@@ -177,7 +177,7 @@
             transition: opacity 0.3s ease;
         }
 
-        /* JS ile Açılma Sınıfları */
+        /* JS ile Gösterme Sınıfları */
         .hardware-section.show {
             display: block !important;
             opacity: 1;
@@ -192,7 +192,7 @@
             opacity: 1;
         }
 
-        /* Donanım Satırları */
+        /* Donanım Listesi Tasarımı */
         .hardware-title {
             font-size: 18px;
             font-weight: 700;
@@ -204,12 +204,35 @@
 
         .hardware-item {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 15px;
             background: rgba(255, 255, 255, 0.02);
             padding: 12px;
             border-radius: 15px;
             margin-bottom: 12px;
             border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        /* Görseller İçin Kapsayıcı Kutu */
+        .hardware-img-container {
+            width: 70px;
+            height: 70px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #00f2fe;
+            flex-shrink: 0;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+        }
+
+        .hardware-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hardware-info {
+            display: flex;
+            flex-direction: column;
         }
 
         .hardware-label {
@@ -230,7 +253,7 @@
         .btn-gmail {
             background: rgba(58, 26, 26, 0.7);
             border-left: 5px solid #ea4335;
-            color: #ea4335; /* Kırmızı */
+            color: #ea4335;
         }
         .btn-gmail:hover {
             background: #ea4335;
@@ -240,7 +263,7 @@
         .btn-sms {
             background: rgba(26, 47, 75, 0.7);
             border-left: 5px solid #007aff;
-            color: #007aff; /* Mavi */
+            color: #007aff;
         }
         .btn-sms:hover {
             background: #007aff;
@@ -250,7 +273,7 @@
         .btn-whatsapp {
             background: rgba(20, 56, 36, 0.7);
             border-left: 5px solid #25d366;
-            color: #25d366; /* Yeşil */
+            color: #25d366;
         }
         .btn-whatsapp:hover {
             background: #25d366;
@@ -290,11 +313,56 @@
 
             <div id="setupMenu" class="hardware-section">
                 <div class="hardware-title"><i class="fas fa-microchip"></i> Sistem Özellikleri</div>
-                <div class="hardware-item"><span class="hardware-label">İşlemci</span><span class="hardware-name">Intel Core i5-10400F</span></div>
-                <div class="hardware-item"><span class="hardware-label">Ekran Kartı</span><span class="hardware-name">AMD Radeon RX 580 (8GB)</span></div>
-                <div class="hardware-item"><span class="hardware-label">Kasa Modeli</span><span class="hardware-name">Izoly Mid-Tower Mesh RGB</span></div>
-                <div class="hardware-item"><span class="hardware-label">RAM Bellek</span><span class="hardware-name">16 GB Izoly DDR4 (Kırmızı)</span></div>
-                <div class="hardware-item"><span class="hardware-label">Depolama</span><span class="hardware-name">512GB M.2 NVMe SSD</span></div>
+                
+                <div class="hardware-item">
+                    <div class="hardware-img-container">
+                        <img src="./islemci.png" alt="İşlemci">
+                    </div>
+                    <div class="hardware-info">
+                        <span class="hardware-label">İşlemci</span>
+                        <span class="hardware-name">Intel Core i5-10400F</span>
+                    </div>
+                </div>
+
+                <div class="hardware-item">
+                    <div class="hardware-img-container">
+                        <img src="./ekrankarti.jpg" alt="Ekran Kartı">
+                    </div>
+                    <div class="hardware-info">
+                        <span class="hardware-label">Ekran Kartı</span>
+                        <span class="hardware-name">AMD Radeon RX 580 (8GB)</span>
+                    </div>
+                </div>
+
+                <div class="hardware-item">
+                    <div class="hardware-img-container">
+                        <img src="./Kasa.png" alt="Kasa Modeli">
+                    </div>
+                    <div class="hardware-info">
+                        <span class="hardware-label">Kasa Modeli</span>
+                        <span class="hardware-name">Izoly Mid-Tower Mesh RGB</span>
+                    </div>
+                </div>
+
+                <div class="hardware-item">
+                    <div class="hardware-img-container">
+                        <img src="./ram.jpg" alt="RAM">
+                    </div>
+                    <div class="hardware-info">
+                        <span class="hardware-label">RAM Bellek</span>
+                        <span class="hardware-name">16 GB Izoly DDR4 (Kırmızı)</span>
+                    </div>
+                </div>
+
+                <div class="hardware-item">
+                    <div class="hardware-img-container">
+                        <img src="./ssd.jpg" alt="Depolama">
+                    </div>
+                    <div class="hardware-info">
+                        <span class="hardware-label">Depolama</span>
+                        <span class="hardware-name">512GB M.2 NVMe SSD</span>
+                    </div>
+                </div>
             </div>
 
             <div onclick="toggleContact()" class="btn btn-contact-trigger">
