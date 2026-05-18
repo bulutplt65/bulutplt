@@ -300,9 +300,9 @@
                 <i class="fab fa-tiktok"></i> TikTok
             </a>
             
-            <a href="https://open.spotify.com/playlist/4wshqU7UuDymC9AAnfO8j6" target="_blank" class="btn btn-spotify">
+            <div onclick="openSpotifyApp()" class="btn btn-spotify">
                 <i class="fab fa-spotify"></i> Spotify: Hızlı Listem
-            </a>
+            </div>
             
             <div onclick="toggleContact()" class="btn btn-contact-trigger">
                 <i class="fas fa-address-book"></i> İletişim
@@ -383,6 +383,20 @@
     </div>
 
     <script>
+        // Spotify Mobil Uygulama ve Web Korumalı Yönlendirme Fonksiyonu
+        function openSpotifyApp() {
+            var playlistUri = "spotify:user:Bulut._.plt65:playlist:hizli"; 
+            var webUrl = "https://open.spotify.com/user/Bulut._.plt65";
+
+            // 1. Adım: Doğrudan telefonun işletim sistemine Spotify protokolünü gönder
+            window.location.href = playlistUri;
+
+            // 2. Adım: Eğer 500ms içinde uygulama açılmazsa (B Planı), resmi web linkine yönlendir
+            setTimeout(function() {
+                window.open(webUrl, '_blank');
+            }, 500);
+        }
+
         function toggleSetup() {
             var menu = document.getElementById("setupMenu");
             if (menu.style.display === "block" || menu.classList.contains("show")) {
